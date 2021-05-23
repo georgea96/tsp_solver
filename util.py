@@ -1,6 +1,13 @@
+#----------------------------------------------------------------------------------------------#
+# The following code was adapted from Assignment 5 of Planning and Decision Making Module      #
+#Credits go to the creators of the assignment as well as  "http://www.opl.ufc.br/post/tsp/"    #
+#----------------------------------------------------------------------------------------------#
+
+import os
 import pyomo.environ as pyEnv
 import scipy.spatial
 import numpy as np
+
 
 def distance(loc1, loc2):
 #     dist = np.linalg.norm(abs(loc1-loc2))
@@ -14,7 +21,6 @@ def def_cost_matrix(locations):
     for idx1, loc1 in enumerate(locations):
         for idx2, loc2 in enumerate(locations):
             cost_matrix[idx1, idx2] = distance(loc1, loc2)
-#     np.fill_diagonal(cost_matrix,6E9)
     return cost_matrix
 
 def obj_func(model):
@@ -67,13 +73,11 @@ def solve_tsp(locations_tsp, cost_matrix):  # based on "http://www.opl.ufc.br/po
 
     model.rest3 = pyEnv.Constraint(model.U, model.N, rule=rule_const3)
 
-    #     model.pprint()
 
-    # Solves
-    solver = pyEnv.SolverFactory('glpk')
-    result = solver.solve(model, tee=False)
-    #     solver = pyEnv.SolverFactory('cplex')
-    #     result = solver.solve(model,tee = True)
+    solver_path_exe=os.getcwd()+"/glpk-4.65/examples/glpsol"
+    solver_obj = pyEnv.SolverFactory('glpk',executable=solver_path_exe)
+
+    result = solver_obj.solve(model, tee=False)
 
     l = list(model.x.keys())
     sol = []
@@ -81,8 +85,7 @@ def solve_tsp(locations_tsp, cost_matrix):  # based on "http://www.opl.ufc.br/po
         if model.x[i]() != 0:
             if model.x[i]() != None:
                 sol.append(i)
-    #     print(sol)
-    print(sol)
+
     # sort the solution
     sorted_sol = [sol[0][0], sol[0][1]]  # list of visited location ids, always starting at the depot
     #     print(sorted_sol)
