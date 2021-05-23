@@ -1,0 +1,26 @@
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\     				GLPK Solver Installation Instructions                                             \\	
+\\ more info at:	https://en.wikibooks.org/wiki/GLPK/Linux_OS                                               \\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+Outside singularity Install the GLPK Solve
+---
+
+cd workspace/src/tsp_solver
+
+```
+wget ftp://ftp.gnu.org/gnu/glpk/glpk-4.65.tar.gz
+wget ftp://ftp.gnu.org/gnu/glpk/glpk-4.65.tar.gz.sig
+```
+```
+tar -xzvf glpk-4.65.tar.gz
+cd glpk-4.65
+```
+```
+./configure
+sudo make install
+``
+
+
+
