@@ -10,10 +10,11 @@ import numpy as np
 
 
 def distance(loc1, loc2):
-#     dist = np.linalg.norm(abs(loc1-loc2))
+    # dist = np.linalg.norm(abs(loc1-loc2))
 #     dist = math.sqrt(sum([(a - b) ** 2 for a, b in zip(x, y)]))
-    dist =scipy.spatial.distance.euclidean(loc1,loc2)
-#     dist = (loc1[0]-loc2[0])**2 + (loc1[1]-loc2[1])**2
+    # dist =scipy.spatial.distance.euclidean(loc1,loc2)
+    # dist = ((loc1[0]-loc2[0])**2+(loc1[1]-loc2[1])**2)**0.5
+    dist = ((loc1[0]-loc2[0])**2 + (loc1[1]-loc2[1])**2)**0.5
     return dist
 
 def def_cost_matrix(locations):
@@ -101,6 +102,6 @@ def solve_tsp(locations_tsp, cost_matrix):  # based on "http://www.opl.ufc.br/po
                 else:
                     sorted_sol.append(ii[1])
 
-    sorted_sol.append(sol[0][0])  # we go back to the depot
+    
 
     return sorted_sol, result
