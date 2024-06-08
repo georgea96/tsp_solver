@@ -1,4 +1,4 @@
-# Traveling Salesman Problem
+# Traveling Salesman Problem Solver
 
 This code is a simple example of how to use the GLPK solver to solve the Traveling Salesman Problem.
 This was created based on the code given from the "Planning and Decision-Making course" at TU Delft.
