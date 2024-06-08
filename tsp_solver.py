@@ -119,18 +119,17 @@ def sort_shopping_list(stock,shopping_list,visualization=False):
         plt.show()
     return customer_items
 
-# Reading the stock which exist in the shop
-path=os.getcwd()
-stock=pd.read_csv(path+'/stock_list.csv', delimiter=',')
+if __name__ == "__main__":
+    # Reading the stock which exist in the shop
+    path=os.getcwd()
+    stock=pd.read_csv(path+'/stock_list.csv', delimiter=',')
 
-#Displaying Stock to the customer
-print("Our stock is:\n================")
-print(stock.loc[:,'Name'])
+    #Displaying Stock to the customer
+    print("Our stock is:\n================")
+    print(stock.loc[:,'Name'])
 
-# Getting the shopping list input from the customer and validating it
-shopping_list=get_shopping_list(stock)
+    # Getting the shopping list input from the customer and validating it
+    shopping_list=get_shopping_list(stock)
 
-#Solving the TSP problem returning poses to be visited
-sol=sort_shopping_list(stock,shopping_list,visualization=True)
-
-print(sol)
+    #Solving the TSP problem returning poses to be visited
+    sol=sort_shopping_list(stock,shopping_list,visualization=True)

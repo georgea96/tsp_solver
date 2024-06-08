@@ -43,3 +43,19 @@ cd glpk-4.65
 sudo make install
 cd ..
 ```
+
+## Usage
+To run the solver you can use the following command
+```bash
+python tsp_solver.py
+```
+Input the items wanted by the customer by their name. 
+
+- Press `enter` after each input.
+- Press `q` to finish the input.
+- to finish the input.
+
+- A plot will be shown with the route to follow.
+- The image is also saved as `TSP_solution.png`.
+
+- To add / remove items from the stock modify the `stock.csv` file.
