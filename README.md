@@ -2,7 +2,7 @@
 
 This code is a simple example of how to use the GLPK solver to solve the Traveling Salesman Problem.
 This was created based on the code given from the "Planning and Decision-Making course" at TU Delft.
-The code was also adapted to a specific problem, where given a list of stock the code receives as input 
+The code was adapted to a specific problem, where given a list of stock the code receives as input 
 the items wanted from the customer and returns as output the best route to pick those items up. Starting
 from the entrance of the shop and ending at the till. After solving the problem a plot is created showing 
 the route that was followed.
