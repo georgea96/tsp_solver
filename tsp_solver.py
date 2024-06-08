@@ -96,8 +96,9 @@ def sort_shopping_list(stock,shopping_list,visualization=False):
             loc_out.append(locations_array[i - 1])
 
         #plotting the nodes of the graph
-        for i in range(len(locations_array)-1): # customers loc
+        for i in range(len(locations_array)-2): # customers loc
             plt.scatter(locations_array[i+1,0],locations_array[i+1,1], color="blue")
+            plt.text(locations_array[i+1,0]-0.02,locations_array[i+1,1]+0.2, customer_items.loc[i+1]['Name'])
 
         #Plotting the edges of the graph
         for index in range(len(loc_out)-1):
@@ -110,6 +111,11 @@ def sort_shopping_list(stock,shopping_list,visualization=False):
         plt.text(locations_array[0,0]-0.02,locations_array[0,1]+0.2, "Entrance")
         plt.text(locations_array[-1,0]-0.02,locations_array[-1,1]-0.4, "Till")
         plt.scatter(locations_array[-1, 0], locations_array[-1, 1], color="red")
+
+        plt.title('TSP solution')
+        plt.xlabel("Shop X-Coordinate")
+        plt.ylabel("Shop Y-Coordinate")
+        plt.savefig('TSP_solution_example.png')
         plt.show()
     return customer_items
 
